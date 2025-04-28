@@ -1,2 +1,2 @@
 build:
-	xelatex -output-directory=output src/nilushan_cv.tex
+	cd src && xelatex -output-directory=../output nilushan_cv.tex

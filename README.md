@@ -14,16 +14,16 @@ This repository contains the LaTeX source code for Nilushan Silva's Curriculum V
 ├── README.md                  # This README file
 ├── docs/                      # Documentation files
 │   └── CLASS_DOCUMENTATION.md # Documentation for the custom LaTeX class
-├── fonts/                     # Directory containing required fonts
-│   ├── AtkinsonHyperlegible-Bold.ttf
-│   ├── AtkinsonHyperlegible-BoldItalic.ttf
-│   ├── AtkinsonHyperlegible-Italic.ttf
-│   └── AtkinsonHyperlegible-Regular.ttf
 ├── output/                    # Directory where the compiled PDF will be placed
 │   └── nilushan_cv.pdf        # Generated PDF (after running make)
-└── src/                       # LaTeX source files
+└── src/                       # LaTeX source files and fonts
     ├── fullstackdeveloper-ats.cls # Custom LaTeX class file
-    └── nilushan_cv.tex            # Main LaTeX file for CV content
+    ├── nilushan_cv.tex            # Main LaTeX file for CV content
+    └── fonts/                     # Directory containing required fonts
+        ├── AtkinsonHyperlegible-Bold.ttf
+        ├── AtkinsonHyperlegible-BoldItalic.ttf
+        ├── AtkinsonHyperlegible-Italic.ttf
+        └── AtkinsonHyperlegible-Regular.ttf
 ```
 
 ## Prerequisites
@@ -31,7 +31,7 @@ This repository contains the LaTeX source code for Nilushan Silva's Curriculum V
 To compile this CV, you need:
 
 1.  **A LaTeX Distribution:** Such as TeX Live, MiKTeX, or MacTeX. Ensure it includes the `xelatex` compiler, as this project relies on it for font handling.
-2.  **Atkinson Hyperlegible Font:** The required `.ttf` font files are included in the `fonts/` directory. Ensure your system's font manager or `xelatex` can find these fonts. Often, placing them in the project directory is sufficient for `xelatex`.
+2.  **Atkinson Hyperlegible Font:** The required `.ttf` font files are included in the `src/fonts/` directory. The LaTeX class is configured to find them there when compiled using the `Makefile`.
 
 ## Compilation
 
@@ -42,14 +42,13 @@ The easiest way to compile the CV is using the provided `Makefile`.
     ```bash
     make build
     ```
-3.  This command executes `xelatex -output-directory=output src/nilushan_cv.tex`.
+3.  This command changes into the `src/` directory and then executes `xelatex -output-directory=../output nilushan_cv.tex`.
 4.  The compiled PDF file (`nilushan_cv.pdf`) will be generated in the `output/` directory.
 
-Alternatively, you can compile manually by running the `xelatex` command directly from the project's root directory:
-
-```bash
-xelatex -output-directory=output src/nilushan_cv.tex
-```
+Alternatively, you can compile manually:
+1.  Navigate to the `src/` directory: `cd src`
+2.  Run `xelatex`: `xelatex -output-directory=../output nilushan_cv.tex`
+3.  Navigate back to the root directory if needed: `cd ..`
 
 You might need to run the command twice to ensure all references (like page numbers, if any) are correctly resolved.
 
