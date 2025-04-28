@@ -10,15 +10,20 @@ This repository contains the LaTeX source code for Nilushan Silva's Curriculum V
 ```
 .
 ├── .gitignore                 # Git ignore file
-├── fullstackdeveloper-ats.cls # Custom LaTeX class file for the CV
 ├── Makefile                   # Makefile for easy compilation
-├── nilushan_cv.tex            # Main LaTeX file containing the CV content
+├── README.md                  # This README file
+├── docs/                      # Documentation files
+│   └── CLASS_DOCUMENTATION.md # Documentation for the custom LaTeX class
 ├── fonts/                     # Directory containing required fonts
 │   ├── AtkinsonHyperlegible-Bold.ttf
 │   ├── AtkinsonHyperlegible-BoldItalic.ttf
 │   ├── AtkinsonHyperlegible-Italic.ttf
 │   └── AtkinsonHyperlegible-Regular.ttf
-└── output/                    # Directory where the compiled PDF will be placed (created by make)
+├── output/                    # Directory where the compiled PDF will be placed
+│   └── nilushan_cv.pdf        # Generated PDF (after running make)
+└── src/                       # LaTeX source files
+    ├── fullstackdeveloper-ats.cls # Custom LaTeX class file
+    └── nilushan_cv.tex            # Main LaTeX file for CV content
 ```
 
 ## Prerequisites
@@ -35,15 +40,15 @@ The easiest way to compile the CV is using the provided `Makefile`.
 1.  **Navigate** to the project directory in your terminal.
 2.  **Run the command:**
     ```bash
-    make hello
+    make build
     ```
-3.  This command executes `xelatex -output-directory=output nilushan_cv.tex`.
+3.  This command executes `xelatex -output-directory=output src/nilushan_cv.tex`.
 4.  The compiled PDF file (`nilushan_cv.pdf`) will be generated in the `output/` directory.
 
 Alternatively, you can compile manually by running the `xelatex` command directly from the project's root directory:
 
 ```bash
-xelatex -output-directory=output nilushan_cv.tex
+xelatex -output-directory=output src/nilushan_cv.tex
 ```
 
 You might need to run the command twice to ensure all references (like page numbers, if any) are correctly resolved.
@@ -52,5 +57,5 @@ You might need to run the command twice to ensure all references (like page numb
 
 To adapt this CV for your own use:
 
-1.  **Edit `nilushan_cv.tex`:** Replace the personal information, experience, skills, projects, etc., with your own details.
-2.  **Review `fullstackdeveloper-ats.cls`:** If you need to make structural or style changes beyond content, you may need to modify the custom class file.
+1.  **Edit `src/nilushan_cv.tex`:** Replace the personal information, experience, skills, projects, etc., with your own details.
+2.  **Review `src/fullstackdeveloper-ats.cls`:** If you need to make structural or style changes beyond content, you may need to modify the custom class file. See the [Class Documentation](./docs/CLASS_DOCUMENTATION.md) for details on its structure and commands.
