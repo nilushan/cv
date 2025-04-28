@@ -1,0 +1,42 @@
+{
+  "name": "LaTeX Development Environment",
+  "image": "texlive/texlive:latest",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "james-yu.latex-workshop",
+        "tecosaur.latex-utilities",
+        "valentjn.vscode-ltex"
+      ],
+      "settings": {
+        "latex-workshop.latex.autoBuild.run": "onSave",
+        "latex-workshop.view.pdf.viewer": "tab",
+        "latex-workshop.latex.recipe.default": "latexmk (pdflatex)",
+        "editor.formatOnSave": true,
+        "latex-workshop.latex.clean.fileTypes": [
+          "*.aux",
+          "*.bbl",
+          "*.blg",
+          "*.idx",
+          "*.ind",
+          "*.lof",
+          "*.lot",
+          "*.out",
+          "*.toc",
+          "*.acn",
+          "*.acr",
+          "*.alg",
+          "*.glg",
+          "*.glo",
+          "*.gls",
+          "*.ist",
+          "*.fls",
+          "*.log",
+          "*.fdb_latexmk"
+        ]
+      }
+    }
+  },
+  "forwardPorts": [],
+  "postCreateCommand": "apt-get update && apt-get install -y git make curl wget python3 && tlmgr update --self && tlmgr install moderncv geometry fontawesome5"
+}
