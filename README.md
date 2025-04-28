@@ -2,6 +2,9 @@
 
 This repository contains the LaTeX source code for Nilushan Silva's Curriculum Vitae (CV). It utilizes a custom LaTeX class (`fullstackdeveloper-ats.cls`) designed to be ATS-friendly and uses the Atkinson Hyperlegible font family.
 
+## CV
+[View the compiled CV PDF](./output/nilushan_cv.pdf)
+
 ## Project Structure
 
 ```
@@ -32,7 +35,7 @@ The easiest way to compile the CV is using the provided `Makefile`.
 1.  **Navigate** to the project directory in your terminal.
 2.  **Run the command:**
     ```bash
-    make 
+    make hello
     ```
 3.  This command executes `xelatex -output-directory=output nilushan_cv.tex`.
 4.  The compiled PDF file (`nilushan_cv.pdf`) will be generated in the `output/` directory.

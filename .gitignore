@@ -22,7 +22,6 @@
 *.synctex(busy)
 *.dvi
 *.xdv
-*.pdf
 
 # macOS specific files
 .DS_Store
