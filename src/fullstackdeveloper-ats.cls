@@ -136,3 +136,27 @@
 \newcommand{\cvlanguage}[2]{%
   \textbf{#1} \hfill #2\\[0.1cm]
 }
+
+
+% Option 1: Clean two-line format
+\newcommand{\experience}[3]{%
+  \noindent\textbf{\large #1} \hfill \textbf{#2}\\
+  \textit{#3}
+  \vspace{0.1cm}
+}
+
+% Option 2: Three-field format with clear separation
+\newcommand{\experiencetwo}[4]{%
+  \noindent\textbf{\large #1}\\
+  \noindent\textbf{#2} \textit{| #3} \hfill \textbf{#4}
+  \vspace{0.2cm}
+}
+
+% Option 3: Modern header with rule
+\newcommand{\experiencethree}[3]{%
+  \noindent\textbf{\large #1} \hfill \textbf{#2}\\
+  \noindent\textit{#3}
+  \vspace{0.05cm}
+  \noindent\rule{\textwidth}{0.4pt}
+  \vspace{0.1cm}
+}
