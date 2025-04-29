@@ -138,25 +138,17 @@
 }
 
 
-% Option 1: Clean two-line format
-\newcommand{\experience}[3]{%
-  \noindent\textbf{\large #1} \hfill \textbf{#2}\\
-  \textit{#3}
+% Modified experience command with optional spacing parameter (default 0.5cm)
+\newcommand{\experience}[4][0.5cm]{%
+  \noindent\textbf{\large #2} \hfill \textbf{#3}\\
+  \textit{#4}
   \vspace{0.1cm}
-}
-
-% Option 2: Three-field format with clear separation
-\newcommand{\experiencetwo}[4]{%
-  \noindent\textbf{\large #1}\\
-  \noindent\textbf{#2} \textit{| #3} \hfill \textbf{#4}
-  \vspace{0.2cm}
-}
-
-% Option 3: Modern header with rule
-\newcommand{\experiencethree}[3]{%
-  \noindent\textbf{\large #1} \hfill \textbf{#2}\\
-  \noindent\textit{#3}
-  \vspace{0.05cm}
-  \noindent\rule{\textwidth}{0.4pt}
-  \vspace{0.1cm}
+  % The command now accepts an optional first parameter for spacing after the complete experience entry
+  % This is used by adding an after-hook to the itemize environment
+  \let\oldenditemize\enditemize
+  \def\enditemize{%
+    \oldenditemize
+    \vspace{#1}%
+    \global\let\enditemize\oldenditemize
+  }%
 }
